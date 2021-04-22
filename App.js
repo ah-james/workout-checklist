@@ -6,9 +6,9 @@ export default function App() {
   const [outputText, setOutputText] = useState("Select Your Workout")
   return (
     <View style={styles.container}>
-      <Text></Text>
+      <Text>{outputText}</Text>
       <Button title="Create a New Workout"/>
-      <Button title="Change Text" />
+      <Button title="Change Text" onPress={() => setOutputText('Which Workout Are You Doing Today?')}/>
       <StatusBar style="auto" />
     </View>
   );
