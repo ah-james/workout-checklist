@@ -8,9 +8,11 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>{outputText}</Text>
-      <TextInput style={styles.input} placeholder={workoutText}></TextInput>
-      <Button title="Create a New Workout"/>
-      <Button title="Change Text" onPress={() => setOutputText('Which Workout Are You Doing Today?')}/>
+      <View style={styles.form}>
+        <TextInput style={styles.input} placeholder={workoutText} />
+        <Button style={styles.button} title="Create" />
+      </View>
+      <Button title="Change Text" onPress={() => setOutputText('Which Workout Are You Doing Today?')} />
       <StatusBar style="auto" />
     </View>
   );
@@ -25,7 +27,13 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
+    width: 200,
     margin: 12,
     borderWidth: 1,
+  },
+  form: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
   },
 });
