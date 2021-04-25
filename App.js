@@ -6,13 +6,15 @@ export default function App() {
   const [outputText, setOutputText] = useState("Create a New Workout")
   const [workoutText] = useState("Name Your Workout")
   const [enteredWorkout, setEnteredWorkout] = useState('')
+  const [workoutList, setWorkoutList] = useState([])
 
   const handleWorkoutInput = (enteredText) => {
     setEnteredWorkout(enteredText)
   }
 
   const addWorkout = () => {
-    console.log(enteredWorkout)
+    setWorkoutList(currentWorkouts => [...currentWorkouts, enteredWorkout])
+    console.log(workoutList)
   }
 
   return (
