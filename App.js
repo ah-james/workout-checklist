@@ -24,7 +24,10 @@ export default function App() {
         <TextInput style={styles.input} placeholder={workoutText} onChangeText={handleWorkoutInput} value={enteredWorkout} />
         <Button style={styles.button} title="Create" onPress={addWorkout} />
       </View>
-      <Button title="Change Text" onPress={() => setOutputText('Which Workout Are You Doing Today?')} />
+      <View>
+        {workoutList.map((workout) => <View style={styles.list}><Text key={workout}>{workout}</Text></View>)}
+      </View>
+      {/* <Button title="Change Text" onPress={() => setOutputText('Which Workout Are You Doing Today?')} /> */}
       <StatusBar style="auto" />
     </View>
   );
@@ -48,4 +51,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center'
   },
+  list: {
+    borderColor: 'black',
+    borderWidth: 1,
+    padding: 10,
+  }
 });
