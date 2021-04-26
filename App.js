@@ -15,6 +15,7 @@ export default function App() {
   const addWorkout = () => {
     setWorkoutList(currentWorkouts => [...currentWorkouts, enteredWorkout])
     console.log(workoutList)
+    setEnteredWorkout('')
   }
 
   return (
