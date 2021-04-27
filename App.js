@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, ScrollView } from 'react-native';
 
 export default function App() {
   const [outputText, setOutputText] = useState("Create a New Workout")
@@ -25,9 +25,9 @@ export default function App() {
         <TextInput style={styles.input} placeholder={workoutText} onChangeText={handleWorkoutInput} value={enteredWorkout} />
         <Button style={styles.button} title="Create" onPress={addWorkout} />
       </View>
-      <View>
-        {workoutList.map((workout) => <View style={styles.list}><Text key={workout}>{workout}</Text></View>)}
-      </View>
+      <ScrollView>
+        {workoutList.map((workout) => <View key={workout} style={styles.list}><Text>{workout}</Text></View>)}
+      </ScrollView>
       {/* <Button title="Change Text" onPress={() => setOutputText('Which Workout Are You Doing Today?')} /> */}
       <StatusBar style="auto" />
     </View>
@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 40,
   },
   input: {
     height: 40,
@@ -56,5 +57,7 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderWidth: 1,
     padding: 10,
+    marginVertical: 5,
+    width: 200,
   }
 });
