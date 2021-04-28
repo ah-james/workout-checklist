@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, TextInput, ScrollView } from 'react-native';
+import WorkoutList from './components/WorkoutList'
 
 export default function App() {
   const [outputText, setOutputText] = useState("Create a New Workout")
@@ -25,9 +26,7 @@ export default function App() {
         <TextInput style={styles.input} placeholder={workoutText} onChangeText={handleWorkoutInput} value={enteredWorkout} />
         <Button style={styles.button} title="Create" onPress={addWorkout} />
       </View>
-      <ScrollView>
-        {workoutList.map((workout) => <View key={workout} style={styles.list}><Text>{workout}</Text></View>)}
-      </ScrollView>
+      <WorkoutList workoutList={workoutList}/>
       {/* <Button title="Change Text" onPress={() => setOutputText('Which Workout Are You Doing Today?')} /> */}
       <StatusBar style="auto" />
     </View>
