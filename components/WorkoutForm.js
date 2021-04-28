@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, TextInput, View, Button } from 'react-native';
 
 const WorkoutForm = props => {
+    const [enteredWorkout, setEnteredWorkout] = useState('')
+
+    const handleWorkoutInput = (enteredText) => {
+        setEnteredWorkout(enteredText)
+    }
+
     return (
         <View style={styles.form}>
-            <TextInput style={styles.input} placeholder={props.workoutText} onChangeText={props.handleWorkoutInput} value={props.enteredWorkout} />
+            <TextInput style={styles.input} placeholder={props.workoutText} onChangeText={handleWorkoutInput} value={enteredWorkout} />
             <Button style={styles.button} title="Create" onPress={props.addWorkout} />
         </View>
     )
