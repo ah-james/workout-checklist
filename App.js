@@ -10,16 +10,23 @@ export default function App() {
   const [workoutList, setWorkoutList] = useState([])
 
   const addWorkout = newWorkout => {
-    setWorkoutList(currentWorkouts => [...currentWorkouts, newWorkout])
+    setWorkoutList(currentWorkouts => [...currentWorkouts, { id: Math.random().toString(), value: newWorkout}])
     console.log(workoutList)
     // setEnteredWorkout('')
   }
+
+  // const removeWorkout = input => {
+  //   setWorkoutList(currentList => {
+  //     return currentList.filter((workout) => workout !== input)
+  //   })
+  // }
 
   return (
     <View style={styles.container}>
       <Text>{outputText}</Text>
       <WorkoutForm workoutText={workoutText} addWorkout={addWorkout} />
-      <WorkoutList workoutList={workoutList} delete={() => console.log('Delete')}/>
+      <WorkoutList workoutList={workoutList} />
+      {/* delete={removeWorkout} */}
       <StatusBar style="auto" />
     </View>
   );

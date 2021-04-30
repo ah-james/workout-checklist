@@ -1,16 +1,16 @@
 import React from 'react'
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableNativeFeedback } from 'react-native';
 
 const WorkoutList = props => {
     return (
-        <ScrollView>
-            {props.workoutList.map((workout) => 
-            <TouchableOpacity onLongPress={props.delete}>
-                <View key={workout} style={styles.list}>
-                    <Text>{workout}</Text>
+        <FlatList data={props.workoutList} renderItem={itemData => (
+            <TouchableNativeFeedback >
+                {/* onLongPress={props.delete(itemData.item)} */}
+                <View style={styles.list}>
+                    <Text>{itemData.item.value}</Text>
                 </View>
-            </TouchableOpacity>)}
-        </ScrollView>
+            </TouchableNativeFeedback>
+        )} />
     )
 }
 
