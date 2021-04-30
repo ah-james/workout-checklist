@@ -1,10 +1,15 @@
 import React from 'react'
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
 
 const WorkoutList = props => {
     return (
         <ScrollView>
-            {props.workoutList.map((workout) => <View key={workout} style={styles.list}><Text>{workout}</Text></View>)}
+            {props.workoutList.map((workout) => 
+            <TouchableOpacity onLongPress={props.delete}>
+                <View key={workout} style={styles.list}>
+                    <Text>{workout}</Text>
+                </View>
+            </TouchableOpacity>)}
         </ScrollView>
     )
 }
