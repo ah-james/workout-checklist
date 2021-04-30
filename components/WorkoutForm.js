@@ -12,7 +12,7 @@ const WorkoutForm = props => {
   return (
       <View style={styles.form}>
           <TextInput style={styles.input} placeholder={props.workoutText} onChangeText={handleWorkoutInput} value={enteredWorkout} />
-          <Button style={styles.button} title="Create" onPress={() => props.addWorkout(enteredWorkout)} />
+          <Button style={styles.button} title="Create" onPress={() => {props.addWorkout(enteredWorkout), setEnteredWorkout('')}} />
       </View>
   )
 }
