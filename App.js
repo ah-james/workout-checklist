@@ -1,25 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput, ScrollView } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import WorkoutList from './components/WorkoutList'
 import WorkoutForm from './components/WorkoutForm'
 
 export default function App() {
-  const [outputText, setOutputText] = useState("Create a New Workout")
+  const [outputText] = useState("Create a New Workout")
   const [workoutText] = useState("Name Your Workout")
   const [workoutList, setWorkoutList] = useState([])
 
-  const addWorkout = () => {
-    setWorkoutList(currentWorkouts => [...currentWorkouts, enteredWorkout])
+  const addWorkout = newWorkout => {
+    setWorkoutList(currentWorkouts => [...currentWorkouts, newWorkout])
     console.log(workoutList)
-    setEnteredWorkout('')
+    // setEnteredWorkout('')
   }
 
   return (
     <View style={styles.container}>
       <Text>{outputText}</Text>
-      <WorkoutForm workoutText={workoutText} addWorkout={addWorkout}/>
-      <WorkoutList workoutList={workoutList}/>
+      <WorkoutForm workoutText={workoutText} addWorkout={addWorkout} />
+      <WorkoutList workoutList={workoutList} delete={() => console.log('Delete')}/>
       <StatusBar style="auto" />
     </View>
   );
@@ -31,6 +31,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 40,
+    marginTop: 80,
   },
 });
