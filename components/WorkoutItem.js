@@ -1,11 +1,13 @@
 import React from 'react'
+import { StyleSheet, Text, View, TouchableNativeFeedback } from 'react-native';
+
 
 const WorkoutItem = props => {
 
     return (
-        <TouchableNativeFeedback onLongPress={props.delete(itemData.item.id)} >
+        <TouchableNativeFeedback onLongPress={props.delete.bind(this, props.id)} >
             <View style={styles.list} >
-                <Text>{itemData.item.value}</Text>
+                <Text>{props.title}</Text>
             </View>
         </TouchableNativeFeedback>
     )
