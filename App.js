@@ -15,18 +15,18 @@ export default function App() {
     // setEnteredWorkout('')
   }
 
-  // const removeWorkout = input => {
-  //   setWorkoutList(currentList => {
-  //     return currentList.filter((workout) => workout !== input)
-  //   })
-  // }
+  const removeWorkout = workoutId => {
+    // console.log(workoutId)
+    setWorkoutList(currentList => {
+      return currentList.filter((workout) => workout.id !== workoutId)
+    })
+  }
 
   return (
     <View style={styles.container}>
       <Text>{outputText}</Text>
       <WorkoutForm workoutText={workoutText} addWorkout={addWorkout} />
-      <WorkoutList workoutList={workoutList} />
-      {/* delete={removeWorkout} */}
+      <WorkoutList workoutList={workoutList} delete={removeWorkout} />
       <StatusBar style="auto" />
     </View>
   );
