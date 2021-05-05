@@ -12,7 +12,11 @@ export default function App() {
   const addWorkout = newWorkout => {
     setWorkoutList(currentWorkouts => [...currentWorkouts, { id: Math.random().toString(), value: newWorkout}])
     console.log(workoutList)
-    // setEnteredWorkout('')
+    setIsCreateWorkout(false)
+  }
+
+  const cancel = () => {
+    setIsCreateWorkout(false)
   }
 
   const removeWorkout = workoutId => {
@@ -25,7 +29,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Button title={'Add New Workout'} onPress={() => setIsCreateWorkout(true)} />
-      <WorkoutForm visible={isCreateWorkout} workoutText={workoutText} addWorkout={addWorkout} />
+      <WorkoutForm cancel={cancel} visible={isCreateWorkout} workoutText={workoutText} addWorkout={addWorkout} />
       <WorkoutList workoutList={workoutList} delete={removeWorkout} />
       <StatusBar style="auto" />
     </View>

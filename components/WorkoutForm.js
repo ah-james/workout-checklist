@@ -10,11 +10,12 @@ const WorkoutForm = props => {
   }
 
   return (
-    <Modal visible={props.visible}>
+    <Modal visible={props.visible} animationType='fade'>
       <View style={styles.form}>
-        {/* <Text>{outputText}</Text> */}
+        <Text>{outputText}</Text>
         <TextInput style={styles.input} placeholder={props.workoutText} onChangeText={handleWorkoutInput} value={enteredWorkout} />
         <Button style={styles.button} title="Create" onPress={() => {props.addWorkout(enteredWorkout), setEnteredWorkout('')}} />
+        <Button style={styles.button} title="Cancel" onPress={props.cancel} />
       </View>
     </Modal>
   )
@@ -28,8 +29,8 @@ const styles = StyleSheet.create({
       borderWidth: 1,
     },
     form: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
+      // flex: 1,
+      justifyContent: 'center',
       alignItems: 'center'
     },
 });
