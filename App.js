@@ -1,13 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button, ProgressViewIOSComponent } from 'react-native';
 import WorkoutList from './components/WorkoutList'
 import WorkoutForm from './components/WorkoutForm'
 
 export default function App() {
-  const [outputText] = useState("Create a New Workout")
   const [workoutText] = useState("Name Your Workout")
   const [workoutList, setWorkoutList] = useState([])
+  const [isCreateWorkout, setIsCreateWorkout] = useState(false)
 
   const addWorkout = newWorkout => {
     setWorkoutList(currentWorkouts => [...currentWorkouts, { id: Math.random().toString(), value: newWorkout}])
@@ -24,8 +24,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>{outputText}</Text>
-      <WorkoutForm workoutText={workoutText} addWorkout={addWorkout} />
+      <Button title={'Add New Workout'} onPress={() => setIsCreateWorkout(true)} />
+      <WorkoutForm visible={isCreateWorkout} workoutText={workoutText} addWorkout={addWorkout} />
       <WorkoutList workoutList={workoutList} delete={removeWorkout} />
       <StatusBar style="auto" />
     </View>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { StyleSheet, TextInput, View, Button } from 'react-native';
+import { StyleSheet, TextInput, View, Button, Modal, Text } from 'react-native';
 
 const WorkoutForm = props => {
-
+  const [outputText] = useState("Create a New Workout")
   const [enteredWorkout, setEnteredWorkout] = useState('')
 
   const handleWorkoutInput = (enteredText) => {
@@ -10,10 +10,13 @@ const WorkoutForm = props => {
   }
 
   return (
+    <Modal visible={props.visible}>
       <View style={styles.form}>
-          <TextInput style={styles.input} placeholder={props.workoutText} onChangeText={handleWorkoutInput} value={enteredWorkout} />
-          <Button style={styles.button} title="Create" onPress={() => {props.addWorkout(enteredWorkout), setEnteredWorkout('')}} />
+        {/* <Text>{outputText}</Text> */}
+        <TextInput style={styles.input} placeholder={props.workoutText} onChangeText={handleWorkoutInput} value={enteredWorkout} />
+        <Button style={styles.button} title="Create" onPress={() => {props.addWorkout(enteredWorkout), setEnteredWorkout('')}} />
       </View>
+    </Modal>
   )
 }
 
