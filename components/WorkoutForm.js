@@ -14,8 +14,10 @@ const WorkoutForm = props => {
       <View style={styles.form}>
         <Text>{outputText}</Text>
         <TextInput style={styles.input} placeholder={props.workoutText} onChangeText={handleWorkoutInput} value={enteredWorkout} />
-        <Button style={styles.button} title="Create" onPress={() => {props.addWorkout(enteredWorkout), setEnteredWorkout('')}} />
-        <Button style={styles.button} title="Cancel" onPress={props.cancel} />
+        <View style={styles.buttons}>
+          <Button title="Cancel" onPress={props.cancel} />
+          <Button title="Create" onPress={() => {props.addWorkout(enteredWorkout), setEnteredWorkout('')}} />
+        </View>
       </View>
     </Modal>
   )
@@ -29,10 +31,14 @@ const styles = StyleSheet.create({
       borderWidth: 1,
     },
     form: {
-      // flex: 1,
       justifyContent: 'center',
       alignItems: 'center'
     },
+    buttons: {
+      width: 150,
+      justifyContent: 'space-between',
+      flexDirection: 'row',
+    }
 });
 
 export default WorkoutForm
