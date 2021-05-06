@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, ProgressViewIOSComponent } from 'react-native';
 import WorkoutList from './components/WorkoutList'
 import WorkoutForm from './components/WorkoutForm'
+import Header from './components/Header'
 
 export default function App() {
   const [workoutText] = useState("Name Your Workout")
@@ -28,6 +29,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Header title={"Welcome to Your Workout Manager"} />
       <Button title={'Add New Workout'} onPress={() => setIsCreateWorkout(true)} />
       <WorkoutForm cancel={cancel} visible={isCreateWorkout} workoutText={workoutText} addWorkout={addWorkout} />
       <WorkoutList workoutList={workoutList} delete={removeWorkout} />
