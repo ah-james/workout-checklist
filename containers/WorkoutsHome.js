@@ -1,16 +1,51 @@
-import React from 'react'
-import { View, Text, Stylesheet } from 'react-native'
+import { StatusBar } from 'expo-status-bar';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Button, ProgressViewIOSComponent } from 'react-native';
+import WorkoutList from '../components/WorkoutList'
+import WorkoutForm from '../components/WorkoutForm'
+import Header from '../components/Header'
 
 const WorkoutsHome = props => {
-    return(
-        <View>
-            
-        </View>
-    )
+  const [workoutText] = useState("Name Your Workout")
+  const [workoutList, setWorkoutList] = useState([])
+  const [isCreateWorkout, setIsCreateWorkout] = useState(false)
+
+  const addWorkout = newWorkout => {
+    setWorkoutList(currentWorkouts => [...currentWorkouts, { id: Math.random().toString(), value: newWorkout}])
+    console.log(workoutList)
+    setIsCreateWorkout(false)
+  }
+
+  const cancel = () => {
+    setIsCreateWorkout(false)
+  }
+
+  const removeWorkout = workoutId => {
+    // console.log(workoutId)
+    setWorkoutList(currentList => {
+      return currentList.filter((workout) => workout.id !== workoutId)
+    })
+  }
+
+  return (
+    <View style={styles.container}>
+      <Header title={"Welcome to Your Workout Manager"} />
+      <Button title={'Add New Workout'} onPress={() => setIsCreateWorkout(true)} />
+      <WorkoutForm cancel={cancel} visible={isCreateWorkout} workoutText={workoutText} addWorkout={addWorkout} />
+      <WorkoutList workoutList={workoutList} delete={removeWorkout} />
+      <StatusBar style="auto" />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-
-})
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 80,
+  },
+});
 
 export default WorkoutsHome
