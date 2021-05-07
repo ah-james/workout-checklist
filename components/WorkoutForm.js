@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { StyleSheet, TextInput, View, Button, Modal, Text } from 'react-native';
+import Card from './Card'
 
 const WorkoutForm = props => {
   const [outputText] = useState("Create a New Workout")
@@ -11,13 +12,15 @@ const WorkoutForm = props => {
 
   return (
     <Modal visible={props.visible} animationType='fade'>
-      <View style={styles.form}>
-        <Text>{outputText}</Text>
-        <TextInput style={styles.input} placeholder={props.workoutText} onChangeText={handleWorkoutInput} value={enteredWorkout} />
-        <View style={styles.buttons}>
-          <Button title="Cancel" onPress={props.cancel} />
-          <Button title="Create" onPress={() => {props.addWorkout(enteredWorkout), setEnteredWorkout('')}} />
-        </View>
+      <View>
+        <Card style={styles.form}>
+          <Text>{outputText}</Text>
+          <TextInput style={styles.input} placeholder={props.workoutText} onChangeText={handleWorkoutInput} value={enteredWorkout} />
+          <View style={styles.buttons}>
+            <Button title="Cancel" onPress={props.cancel} />
+            <Button title="Create" onPress={() => {props.addWorkout(enteredWorkout), setEnteredWorkout('')}} />
+          </View>
+        </Card>
       </View>
     </Modal>
   )
@@ -28,13 +31,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 25,
-    shadowColor: 'black',
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 6,
-    shadowOpacity: 0.26,
-    elevation: 7,
-    padding: 20,
-    borderRadius: 15,
   },
     input: {
       height: 40,
