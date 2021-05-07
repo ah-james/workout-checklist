@@ -32,7 +32,8 @@ const styles = StyleSheet.create({
     },
     form: {
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
+      marginTop: 25
     },
     buttons: {
       width: 150,

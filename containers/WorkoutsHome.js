@@ -30,7 +30,7 @@ const WorkoutsHome = props => {
   return (
     <View style={styles.container}>
       <Header title={"Welcome to Your Workout Manager"} />
-      <Button title={'Add New Workout'} onPress={() => setIsCreateWorkout(true)} />
+      <Button style={styles.buttonContainer} title={'Add New Workout'} onPress={() => setIsCreateWorkout(true)} />
       <WorkoutForm cancel={cancel} visible={isCreateWorkout} workoutText={workoutText} addWorkout={addWorkout} />
       <WorkoutList workoutList={workoutList} delete={removeWorkout} />
       <StatusBar style="auto" />
@@ -44,8 +44,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 80,
+    // marginTop: 80,
+    marginVertical: 80
   },
+  buttonContainer: {
+      marginVertical: 10,
+      paddingTop: 10
+  }
 });
 
 export default WorkoutsHome
