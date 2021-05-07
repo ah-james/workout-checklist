@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { StyleSheet, TextInput, View, Button, Modal, Text } from 'react-native';
 import Card from './Card'
+import Colors from '../constants/colors'
 
 const WorkoutForm = props => {
   const [outputText] = useState("Create a New Workout")
@@ -17,8 +18,8 @@ const WorkoutForm = props => {
           <Text>{outputText}</Text>
           <TextInput style={styles.input} placeholder={props.workoutText} onChangeText={handleWorkoutInput} value={enteredWorkout} />
           <View style={styles.buttons}>
-            <Button title="Cancel" onPress={props.cancel} />
-            <Button title="Create" onPress={() => {props.addWorkout(enteredWorkout), setEnteredWorkout('')}} />
+            <Button title="Cancel" onPress={props.cancel} color={Colors.secondary} />
+            <Button title="Create" onPress={() => {props.addWorkout(enteredWorkout), setEnteredWorkout('')}} color={Colors.primary}/>
           </View>
         </Card>
       </View>

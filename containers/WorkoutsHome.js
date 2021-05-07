@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Button, ProgressViewIOSComponent } from 'react-
 import WorkoutList from '../components/WorkoutList'
 import WorkoutForm from '../components/WorkoutForm'
 import Header from '../components/Header'
+import Colors from '../constants/colors'
 
 const WorkoutsHome = props => {
   const [workoutText] = useState("Name Your Workout")
@@ -30,7 +31,7 @@ const WorkoutsHome = props => {
   return (
     <View style={styles.container}>
       <Header title={"Welcome to Your Workout Manager"} />
-      <Button style={styles.buttonContainer} title={'Add New Workout'} onPress={() => setIsCreateWorkout(true)} />
+      <Button style={styles.buttonContainer} title={'Add New Workout'} onPress={() => setIsCreateWorkout(true)} color={Colors.secondary} />
       <WorkoutForm cancel={cancel} visible={isCreateWorkout} workoutText={workoutText} addWorkout={addWorkout} />
       <WorkoutList workoutList={workoutList} delete={removeWorkout} />
       <StatusBar style="auto" />
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     // marginTop: 80,
-    marginVertical: 80
+    marginVertical: 76
   },
   buttonContainer: {
       marginVertical: 10,
