@@ -24,16 +24,23 @@ const WorkoutForm = props => {
 }
 
 const styles = StyleSheet.create({
+  form: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 25,
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
+    shadowOpacity: 0.26,
+    elevation: 7,
+    padding: 20,
+    borderRadius: 15,
+  },
     input: {
       height: 40,
       width: 200,
       margin: 12,
       borderWidth: 1,
-    },
-    form: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginTop: 25
     },
     buttons: {
       width: 150,
