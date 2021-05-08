@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, ProgressViewIOSComponent } from 'react-native';
+import { StyleSheet, View, Button, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import WorkoutList from '../components/WorkoutList'
 import WorkoutForm from '../components/WorkoutForm'
 import Header from '../components/Header'
@@ -28,14 +28,20 @@ const WorkoutsHome = props => {
     })
   }
 
+  const removeKeyboard = () => {
+      Keyboard.dismiss
+  }
+
   return (
-    <View style={styles.container}>
-      <Header title={"Welcome to Your Workout Manager"} />
-      <Button style={styles.buttonContainer} title={'Add New Workout'} onPress={() => setIsCreateWorkout(true)} color={Colors.secondary} />
-      <WorkoutForm cancel={cancel} visible={isCreateWorkout} workoutText={workoutText} addWorkout={addWorkout} />
-      <WorkoutList workoutList={workoutList} delete={removeWorkout} />
-      <StatusBar style="auto" />
-    </View>
+    <TouchableWithoutFeedback onPress={removeKeyboard}>
+        <View style={styles.container}>
+            <Header title={"Welcome to Your Workout Manager"} />
+            <Button style={styles.buttonContainer} title={'Add New Workout'} onPress={() => setIsCreateWorkout(true)} color={Colors.secondary} />
+            <WorkoutForm cancel={cancel} visible={isCreateWorkout} workoutText={workoutText} addWorkout={addWorkout} />
+            <WorkoutList workoutList={workoutList} delete={removeWorkout} />
+            <StatusBar style="auto" />
+        </View>
+    </TouchableWithoutFeedback>
   );
 }
 

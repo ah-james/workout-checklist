@@ -12,18 +12,19 @@ const WorkoutForm = props => {
   }
 
   return (
-    <Modal visible={props.visible} animationType='fade'>
-      <View>
-        <Card style={styles.form}>
-          <Text>{outputText}</Text>
-          <TextInput style={styles.input} placeholder={props.workoutText} onChangeText={handleWorkoutInput} value={enteredWorkout} />
-          <View style={styles.buttons}>
-            <Button title="Cancel" onPress={props.cancel} color={Colors.secondary} />
-            <Button title="Create" onPress={() => {props.addWorkout(enteredWorkout), setEnteredWorkout('')}} color={Colors.primary}/>
-          </View>
-        </Card>
-      </View>
-    </Modal>
+      <Modal visible={props.visible} animationType='fade'>
+        <View>
+          <Card style={styles.form}>
+            <Text>{outputText}</Text>
+            <TextInput style={styles.input} placeholder={props.workoutText} onChangeText={handleWorkoutInput} value={enteredWorkout} autoCapitalize='words' maxLength={20} />
+            <View style={styles.buttons}>
+              <Button title="Cancel" onPress={props.cancel} color={Colors.secondary} />
+              <Button title="Create" onPress={() => {props.addWorkout(enteredWorkout), setEnteredWorkout('')}} color={Colors.primary}/>
+            </View>
+          </Card>
+        </View>
+      </Modal>
+    
   )
 }
 
