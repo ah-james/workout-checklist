@@ -1,15 +1,18 @@
 import React from 'react'
 import { StyleSheet, Text, View, TouchableNativeFeedback } from 'react-native';
+import Card from './Card'
 
 
 const WorkoutItem = props => {
 
     return (
-        <TouchableNativeFeedback onLongPress={props.delete.bind(this, props.id)} >
-            <View style={styles.list} >
-                <Text>{props.title}</Text>
-            </View>
-        </TouchableNativeFeedback>
+        <Card>
+            <TouchableNativeFeedback onLongPress={props.checkDelete.bind(this, props.id)} >
+                <View style={styles.list} >
+                    <Text>{props.title}</Text>
+                </View>
+            </TouchableNativeFeedback>
+        </Card>
     )
 }
 
@@ -19,9 +22,9 @@ const styles = StyleSheet.create({
       borderColor: 'black',
       borderWidth: 1,
       padding: 10,
-      marginVertical: 5,
+      marginVertical: 2,
       width: 200,
     }
-  });
+});
 
 export default WorkoutItem
