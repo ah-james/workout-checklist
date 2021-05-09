@@ -32,7 +32,7 @@ const WorkoutsHome = props => {
       Alert.alert(
           'Are you sure?',
           'Do you want to delete?',
-          [{text: 'Delete', style: 'destructive', onPress: removeWorkout(workoutId)}, {text: 'Cancel', style: 'cancel', onPress: cancel}]
+          [{text: 'Cancel', style: 'cancel', onPress: cancel}, {text: 'Delete', style: 'default', onPress: console.log('delete')}]
       )
   }
 

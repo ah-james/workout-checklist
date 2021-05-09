@@ -1,7 +1,7 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableNativeFeedback } from 'react-native';
+import { StyleSheet, Text, View, TouchableNativeFeedback, Button } from 'react-native';
 import Card from './Card'
-
+import Colors from '../constants/colors'
 
 const WorkoutItem = props => {
 
@@ -9,7 +9,8 @@ const WorkoutItem = props => {
         <Card>
             <TouchableNativeFeedback onLongPress={props.checkDelete.bind(this, props.id)} >
                 <View style={styles.list} >
-                    <Text>{props.title}</Text>
+                    <Text style={styles.text}>{props.title}</Text>
+                    <Button title="Begin" style={styles.button} color={Colors.primary} />
                 </View>
             </TouchableNativeFeedback>
         </Card>
@@ -19,12 +20,13 @@ const WorkoutItem = props => {
 
 const styles = StyleSheet.create({
     list: {
-      borderColor: 'black',
-      borderWidth: 1,
-      padding: 10,
-      marginVertical: 2,
-      width: 200,
-    }
+      padding: 5,
+      width: 120,
+      alignItems: 'center',
+    }, 
+    text: {
+        fontSize: 20,
+    },
 });
 
 export default WorkoutItem
