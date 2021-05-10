@@ -32,20 +32,18 @@ const WorkoutsHome = props => {
       Alert.alert(
           'Are you sure?',
           'Do you want to delete?',
-          [{text: 'Cancel', style: 'cancel', onPress: cancel}, {text: 'Delete', style: 'default', onPress: console.log('delete')}]
+          [{text: 'Cancel', style: 'cancel', onPress: cancel}, {text: 'Delete', style: 'default', onPress: removeWorkout(workoutId)}]
       )
   }
 
   return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-        <View style={styles.container}>
-            <Header title={"Welcome to Your Workout Manager"} />
-            <Button style={styles.buttonContainer} title={'Add New Workout'} onPress={() => setIsCreateWorkout(true)} color={Colors.secondary} />
-            <WorkoutForm cancel={cancel} visible={isCreateWorkout} workoutText={workoutText} addWorkout={addWorkout} />
-            <WorkoutList workoutList={workoutList} checkDelete={checkDelete} />
-            <StatusBar style="auto" />
-        </View>
-    </TouchableWithoutFeedback>
+    <View style={styles.container}>
+        <Header title={"Welcome to Your Workout Manager"} />
+        <Button style={styles.buttonContainer} title={'Add New Workout'} onPress={() => setIsCreateWorkout(true)} color={Colors.secondary} />
+        <WorkoutForm cancel={cancel} visible={isCreateWorkout} workoutText={workoutText} addWorkout={addWorkout} />
+        <WorkoutList workoutList={workoutList} checkDelete={checkDelete} chooseWorkout={props.chooseWorkout} />
+        <StatusBar style="auto" />
+    </View>
   );
 }
 

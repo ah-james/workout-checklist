@@ -6,7 +6,7 @@ const WorkoutList = props => {
     return (
         <View>
             <FlatList data={props.workoutList} renderItem={itemData => (
-                <WorkoutItem id={itemData.item.id} checkDelete={props.checkDelete} title={itemData.item.value} />
+                <WorkoutItem id={itemData.item.id} checkDelete={props.checkDelete} title={itemData.item.value} chooseWorkout={props.chooseWorkout} />
             )} />
         </View>
     )

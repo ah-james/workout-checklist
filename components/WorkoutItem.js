@@ -10,13 +10,12 @@ const WorkoutItem = props => {
             <TouchableNativeFeedback onLongPress={props.checkDelete.bind(this, props.id)} >
                 <View style={styles.list} >
                     <Text style={styles.text}>{props.title}</Text>
-                    <Button title="Begin" style={styles.button} color={Colors.primary} />
+                    <Button title="Begin" style={styles.button} color={Colors.primary} onPress={() => props.chooseWorkout(props.id)} />
                 </View>
             </TouchableNativeFeedback>
         </Card>
     )
 }
-
 
 const styles = StyleSheet.create({
     list: {
