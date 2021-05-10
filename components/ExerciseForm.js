@@ -10,8 +10,8 @@ const ExerciseForm = props => {
 
     return(
         <View style={styles.container}>
-            <Text>Add A Workout</Text>
-            <TextInput styles={styles.inputField} placeholder={'Enter a New Exercise'} value={enteredExercise} onChangeText={handleExerciseInput} />
+            <Text>Workout Title</Text>
+            <TextInput styles={styles.input} placeholder={'Enter a New Exercise'} value={enteredExercise} onChangeText={handleExerciseInput} />
             <Button title={'Add'} />
         </View>
     )
