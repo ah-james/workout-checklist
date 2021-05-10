@@ -1,13 +1,17 @@
 import React from 'react';
-import { View, Text, Stylesheet } from 'react-redux'
+import { View, Text, StyleSheet } from 'react-native'
 
 const WorkoutScreen = props => {
 
     return(
-        <View></View>
+        <View>
+            <Text>Workout Screen</Text>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
-    
+
 })
+
+export default WorkoutScreen
