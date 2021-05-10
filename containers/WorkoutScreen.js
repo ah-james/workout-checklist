@@ -1,11 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native'
+import ExerciseForm from '../components/ExerciseForm'
 
 const WorkoutScreen = props => {
 
     return(
         <View>
-            <Text>Workout Screen</Text>
+            <ExerciseForm />
         </View>
     )
 }
